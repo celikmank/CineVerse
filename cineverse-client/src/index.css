@@ -1,0 +1,75 @@
+﻿/* src/index.css - Modern ve Canlı Tema */
+
+@import "tailwindcss";
+
+@layer base {
+    /*
+    :root -> Tüm HTML dokümanı için geçerli olacak CSS değişkenleri tanımlıyoruz.
+    Bu, tema renklerini tek bir yerden kolayca değiştirmemizi sağlar.
+  */
+    :root {
+        --color-background: 24 30 46; /* Koyu lacivert/siyah arası bir renk */
+        --color-surface: 37 45 68; /* Kartlar ve menüler için biraz daha açık bir ton */
+        --color-primary: 59 130 246; /* Ana Vurgu Rengi: Canlı bir mavi */
+        --color-text-base: 229 231 235; /* Ana metin rengi: Kırık beyaz */
+        --color-text-muted: 156 163 175; /* İkincil metinler için: Açık gri */
+    }
+
+    body {
+        /* 
+      @apply ile Tailwind sınıflarını kullanıyoruz.
+      Arka planı değişkenimizle ayarlıyoruz.
+      Yazı rengini değişkenimizle ayarlıyoruz.
+      Yumuşak kaydırma (smooth scrolling) ekliyoruz.
+    */
+        @apply bg-[rgb(var(--color-background))] text-[rgb(var(--color-text-base))] antialiased;
+        scroll-behavior: smooth;
+    }
+
+    /* Tüm başlıklar için varsayılan stiller */
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold tracking-tight text-white;
+    }
+
+    /* Linkler için varsayılan stil */
+    a {
+        @apply text-blue-400 hover:text-blue-300 transition-colors;
+    }
+}
+
+@layer components {
+    /*
+    .btn-gradient -> Kendimize özel bir buton stili oluşturuyoruz.
+    Bu butonu istediğimiz yerde `className="btn-gradient"` yazarak kullanabiliriz.
+  */
+    .btn-gradient {
+        @apply px-6 py-2 rounded-md font-semibold text-white;
+        @apply bg-gradient-to-r from-blue-500 to-blue-600;
+        @apply hover:from-blue-600 hover:to-blue-700;
+        @apply transition-all duration-300 transform hover:scale-105;
+        @apply focus:outline-none focus:ring-2 focus:ring-blue-400/75;
+    }
+}
+
+@layer utilities {
+    /*
+    Sayfa içindeki scrollbar'ı (kaydırma çubuğu) da temamıza uygun hale getiriyoruz.
+    Bu, sitenin bütünlüğünü artıran küçük ama etkili bir detaydır.
+  */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgb(var(--color-background));
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(var(--color-surface));
+        border-radius: 10px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(var(--color-primary));
+        }
+}
