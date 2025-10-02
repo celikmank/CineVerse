@@ -164,3 +164,28 @@ Set secrets as pipeline variables or secrets:
 - [Safe storage of app secrets in development](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets)
 - [Configuration in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/)
 - [Azure Key Vault configuration provider](https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration)
+
+## Frontend (React/Vite) Configuration
+
+The frontend uses environment variables for configuration. These are prefixed with `VITE_` for Vite.
+
+### Development Setup
+
+1. Copy the example file:
+   ```bash
+   cd cineverse-client
+   cp .env.example .env
+   ```
+
+2. Edit `.env` with your values:
+   - `VITE_TMDB_API_KEY`: Your TMDB API key
+   - `VITE_API_BASE_URL`: Your backend API URL (default: http://localhost:5067/api)
+
+3. **Important**: `.env` files are in `.gitignore` and will never be committed.
+
+### Security Notes for Frontend
+
+- **Never expose sensitive API keys in frontend code** if you can avoid it
+- Consider proxying sensitive API calls through your backend
+- TMDB API keys in frontend are visible to users in browser DevTools
+- For production, use environment variables in your hosting platform (Vercel, Netlify, etc.)
