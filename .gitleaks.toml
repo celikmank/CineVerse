@@ -1,0 +1,58 @@
+# Gitleaks Configuration
+# This file configures Gitleaks to detect secrets in your repository
+# See https://github.com/gitleaks/gitleaks for more information
+
+title = "CineVerse Gitleaks Configuration"
+
+# Redact secrets in output (show only partial values)
+[extend]
+# useDefault = true means we use all default Gitleaks rules
+# You can see the default rules at: https://github.com/gitleaks/gitleaks/blob/master/config/gitleaks.toml
+useDefault = true
+
+# Redact secrets in the output to avoid exposing them in logs
+[redact]
+enabled = true
+
+# Example: Add custom rules (currently commented out - add if needed)
+# [[rules]]
+# id = "custom-api-key"
+# description = "Custom API Key Pattern"
+# regex = '''(?i)(custom_api_key|customapikey)\s*[:=]\s*['"]?([a-zA-Z0-9]{32,})['"]?'''
+# tags = ["key", "API"]
+
+# Example: Allowlist configuration (uncomment and modify as needed)
+# Use allowlists to suppress false positives or known safe values
+
+# [allowlist]
+# description = "Allowlist for known false positives"
+# 
+# # Ignore localhost connection strings (development only)
+# regexes = [
+#   '''Server=localhost''',
+#   '''127\.0\.0\.1''',
+#   '''Data Source=\(localdb\)''',
+# ]
+# 
+# # Ignore specific files
+# paths = [
+#   '''\.example\.json$''',
+#   '''\.sample\.json$''',
+#   '''^docs/.*\.md$''',
+# ]
+# 
+# # Ignore specific commits (use commit SHAs)
+# commits = [
+#   # "abc123def456...",
+# ]
+# 
+# # Allowlist specific secrets by their hash (after verification they're safe)
+# stopwords = [
+#   # "example-safe-value",
+# ]
+
+# To add a new allowlist rule:
+# 1. Run gitleaks locally to identify the false positive
+# 2. Verify it's genuinely a false positive (not a real secret!)
+# 3. Add an appropriate regex, path, or stopword entry above
+# 4. Test with: gitleaks detect --config=.gitleaks.toml -v
