@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Local development secrets (appsettings.Local.json should never be committed)
+**/appsettings.Local.json
+
+# Frontend environment files (for Vite/React)
+**/.env
+**/.env.local
+**/.env.*.local

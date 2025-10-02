@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.OutputCaching;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add optional local settings file for development
+builder.Configuration.AddJsonFile("appsettings.Local.json", optional: true, reloadOnChange: true);
+
 // CORS
 builder.Services.AddCors(options =>
 {
