@@ -164,6 +164,7 @@ Set secrets as pipeline variables or secrets:
 - [Safe storage of app secrets in development](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets)
 - [Configuration in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/)
 - [Azure Key Vault configuration provider](https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration)
+- [Secret Scanning Guide](docs/Secret-Scanning.md) - Automated secret leak detection
 
 ## Frontend (React/Vite) Configuration
 

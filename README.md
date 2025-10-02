@@ -84,6 +84,7 @@ See [SECRETS-CONFIGURATION.md](SECRETS-CONFIGURATION.md) for complete setup inst
 ## 📚 Documentation
 
 - [Secrets Configuration Guide](SECRETS-CONFIGURATION.md) - Detailed guide on managing secrets securely
+- [Secret Scanning Guide](docs/Secret-Scanning.md) - Automated secret leak detection with Gitleaks
 
 ## 🛠️ Built With
 
@@ -99,6 +100,7 @@ See [SECRETS-CONFIGURATION.md](SECRETS-CONFIGURATION.md) for complete setup inst
 - API key protection
 - Rate limiting
 - Response caching
+- Automated secret scanning with Gitleaks (CI/CD)
 
 ## 📝 License
 
